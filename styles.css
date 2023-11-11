@@ -1,3 +1,16 @@
+:root {
+  --main-bg-color: #333333;
+  --card-width-normal: 40vw;
+  --card-height-normal: 80vh;
+  --card-background-color: #3b4e5a;
+  --card-text-color: #ecf0f1;
+  --card-shadow: 1px 1px 16px 8px #e57373;
+  --card-profile-pic-height: 9rem;
+  --card-profile-pic-width: 9rem;
+  --card-profile-pic-radius: 50%;
+  --main-button-color: #e57373;
+}
+
 *,
 *::before,
 *::after {
@@ -12,21 +25,22 @@ a {
 }
 
 body {
-  min-height: 100vh;
+  min-height: 200vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #333333;
+  background-color: var(--main-bg-color);
 }
 
 .card {
-  background-color: #3b4e5a;
-  height: 80vh;
-  width: 40vw;
-  color: #ecf0f1;
+  background-color: var(--card-background-color);
+  height: var(--card-height-normal);
+  width: var(--card-width-normal);
+  color: var(--card-text-color);
   display: grid;
   grid-template-rows: auto 1px auto auto;
-  box-shadow: 1px 1px 16px 8px #e57373;
+  box-shadow: var(--card-shadow);
 }
 
 .top.profile {
@@ -40,7 +54,7 @@ body {
 .profile-pic {
   width: 8rem;
   height: 9rem;
-  border-radius: 50%;
+  border-radius: var(--card-profile-pic-radius);
   justify-self: center;
   align-self: center;
   grid-column: 2;
@@ -48,7 +62,7 @@ body {
 }
 
 .account-button {
-  background-color: #e57373;
+  background-color: var(--main-button-color);
   top: 10%;
   left: 10%;
   position: absolute;
@@ -62,7 +76,7 @@ body {
 }
 
 .account-view {
-  background-color: #e57373;
+  background-color: var(--main-button-color);
   top: 60%;
   left: 10%;
   position: absolute;
@@ -76,7 +90,7 @@ body {
 }
 
 .search-button {
-  background-color: #e57373;
+  background-color: var(--main-button-color);
   top: 10%;
   right: 10%;
   position: absolute;
@@ -90,7 +104,7 @@ body {
 }
 
 .profile-analytics {
-  background-color: #e57373;
+  background-color: var(--main-button-color);
   top: 60%;
   right: 10%;
   position: absolute;
@@ -220,7 +234,7 @@ button:hover {
   }
   a:hover,
   button:hover {
-    transform: scale(1.1);
+    transform: scale(1.075);
   }
 
   .account-button:hover,
@@ -249,4 +263,59 @@ button:hover {
     margin-top: 0;
     gap: 2vw;
   }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: var(--card-background-color);
+  color: var(--card-text-color);
+  height: var(--card-height-normal);
+  width: var(--card-width-normal);
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 5%;
+}
+
+.close-modal {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  position: fixed;
+  top: 1rem;
+  right: 30vw;
+  background-color: var(--main-button-color);
+}
+
+.background-picker {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  & .color-change-btn {
+    background-color: var(--main-button-color);
+    width: 80%;
+    height: 2rem;
+    align-self: center;
+    cursor: pointer;
+  }
+}
+
+.color-pallet {
+  position: absolute;
+  top: 100px;
+  left: 100px;
 }
