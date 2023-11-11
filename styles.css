@@ -12,7 +12,7 @@ a {
 }
 
 body {
-  min-height: 100dvh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,8 +21,8 @@ body {
 
 .card {
   background-color: #3b4e5a;
-  height: 80dvh;
-  width: 40dvw;
+  height: 80vh;
+  width: 40vw;
   color: #ecf0f1;
   display: grid;
   grid-template-rows: auto 1px auto auto;
@@ -89,7 +89,7 @@ body {
   }
 }
 
-.analytics {
+.profile-analytics {
   background-color: #e57373;
   top: 60%;
   right: 10%;
@@ -187,13 +187,14 @@ button:hover {
 .footer.profile {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
+  gap: 4vw;
 }
 
 .message img,
 .follow img {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 3.5rem;
+  height: 3.5rem;
 }
 
 .message,
@@ -205,4 +206,47 @@ button:hover {
   border-end-end-radius: 50%;
   margin-bottom: 1rem;
   box-shadow: 1px 1px 8px 1px black;
+}
+
+@media screen and (max-width: 700px) {
+  .profile-pic {
+    width: 6rem;
+    height: 7rem;
+  }
+
+  .card {
+    width: 50vw;
+    height: 90vw;
+  }
+  a:hover,
+  button:hover {
+    transform: scale(1.1);
+  }
+
+  .account-button:hover,
+  .account-view:hover,
+  .search-button:hover,
+  .analytics:hover,
+  .profile-pic:hover {
+    transform: scale(1.075);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .message img,
+  .follow img {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .message,
+  .follow {
+    width: 5rem;
+    height: 3rem;
+  }
+
+  .middle-button-container {
+    margin-top: 0;
+    gap: 2vw;
+  }
 }
