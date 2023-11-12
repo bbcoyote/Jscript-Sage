@@ -18,13 +18,14 @@ const followButton = document.getElementById("follow");
 const modal = document.getElementById("account-modal");
 const closeBtn = document.getElementById("close-btn");
 
+const allButtons = document.getElementsByTagName("button");
+
 accountButton.onclick = function () {
   modal.style.display = "flex";
 };
 
 closeBtn.onclick = function () {
   modal.style.display = "none";
-  console.log("clicked");
 };
 
 document.getElementById("color-btn").addEventListener("click", () => {
@@ -41,3 +42,26 @@ document
 console.error(
   "change the body height back to 100vh after completing all modals!"
 );
+
+function buttonClickEventFactory(button, clickHandler) {
+  button.addEventListener("click", () => clickHandler());
+}
+
+function playGrantedSound() {
+  document.getElementById("granted-sound").play();
+}
+
+function playDeniedSound() {
+  document.getElementById("denied-sound").play();
+}
+
+buttonClickEventFactory(previewAccount, playDeniedSound);
+buttonClickEventFactory(accountButton, playGrantedSound);
+buttonClickEventFactory(profileAnalytics, playDeniedSound);
+buttonClickEventFactory(profileSearch, playDeniedSound);
+buttonClickEventFactory(contactInfo, playDeniedSound);
+buttonClickEventFactory(socialLinks, playDeniedSound);
+buttonClickEventFactory(skillView, playDeniedSound);
+buttonClickEventFactory(portfolioView, playDeniedSound);
+buttonClickEventFactory(followButton, playDeniedSound);
+buttonClickEventFactory(messageButton, playDeniedSound);

@@ -7,6 +7,8 @@
     <script src="./index.js" defer></script>
     <title>JScript Sage</title>
   </head>
+  <audio id="denied-sound" src="./sounds/denied.wav"></audio>
+  <audio id="granted-sound" src="./sounds/grantedButton.wav" hidden></audio>
   <body>
     <div class="card">
       <div class="top profile">
@@ -25,7 +27,7 @@
             src="./assets/search.png"
             alt="search button" />
         </button>
-        <button class="profile-analytics">
+        <button class="profile-analytics" id="profile-analytics">
           <img
             class="analytics-img"
             src="./assets/analytics.png"
